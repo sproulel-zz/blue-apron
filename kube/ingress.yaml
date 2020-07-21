@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: web-app-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  tls:
+  - hosts:
+      - webapp.com
+    secretName: webapp-secret-tls
+  rules:
+  - host: webapp.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: web-app-service
+          servicePort: 80 
