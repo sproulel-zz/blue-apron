@@ -19,3 +19,7 @@
 	- take to dev env
 - if all others:
 	- end pipeline
+
+## features desired on github side
+- every commit, pull request (preferred) kicks of build using web hooks
+- feedback in pull requests (pass or fail)
